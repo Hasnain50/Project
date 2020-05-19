@@ -17,7 +17,7 @@
 
  <?php
  include "connection.php";
- if(isset($_POST[`btnSubmit`]))
+ if(isset($_POST['btnsubmit']))
  {
  $cat=$_POST['txtName'];
   $query="INSERT into Category(C_NAME)value('$cat')";
