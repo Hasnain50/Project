@@ -24,15 +24,26 @@
 
 <?php
 include 'connection.php';
-if(isset($_POST['btnSubmit']))
+if(isset($_POST['btnsubmit']))
 {
 $pName=$_POST['txtName'];
 $pCategory=$_POST['txtCategory'];
 $pPrice=$_POST['txtPrice'];
 $pQuantity=$_POST['txtQuantity'];
 
-echo "Name : ".$pName;
-echo "Category : ".$pCategory;
+//echo "Name : ".$pName;
+//echo "Category : ".$pCategory;
+
+$query= "INSERT INTO Product (`P_NAME`,`P_CATEGORY`,`P_PRICE`,`P_QUANTITY`) VALUES
+('$pName','$pCategory','$pPrice','$pQuantity')";
+$result=mysqli_query($conn,$query);
+if($result)
+{
+	echo "Data Inserted";
+}else{
+	echo "Error : ".mysqli_error($conn);
+}
+
 }
 ?>
 
