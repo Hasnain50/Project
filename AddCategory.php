@@ -24,7 +24,7 @@
  {
  $cat=$_POST['txtName'];
  $des=$_POST['txtDescription'];
-  $query="INSERT into Category(C_NAME),(C_DESCRIPTION)value('$cat'),('$des')";
+  $query="INSERT INTO Category(`C_NAME`,`C_DESCRIPTION`) VALUES ('$cat','$des')";
   $result=mysqli_query($conn,$query);
   if($result)
   {
