@@ -8,9 +8,8 @@
 <body>
 <?php
 include 'connection.php';
-$query1="SELECT * from Category";
-$result1=mysqli_query($conn,$query1);
-
+    $query1="SELECT * from Category";
+    $result1=mysqli_query($conn,$query1);
 
 ?>
 <form method="POST">
@@ -18,7 +17,6 @@ $result1=mysqli_query($conn,$query1);
 	<input type="text" name="txtName"/>
 	<br>
 	<label>Enter Category</label>
-	<input type="text" name="txtCategory"/>
 	<select name="dCategory">
 			
 			<?php
@@ -49,24 +47,22 @@ $result1=mysqli_query($conn,$query1);
 //include 'connection.php';
 if(isset($_POST['btnsubmit']))
 {
-$pName=$_POST['txtName'];
-$pCategory=$_POST['txtCategory'];
-$pPrice=$_POST['txtPrice'];
-$pQuantity=$_POST['txtQuantity'];
+    $pName=$_POST['txtName'];
+    $pCategory=$_POST['dCategory'];
+    $pPrice=$_POST['txtPrice'];
+    $pQuantity=$_POST['txtQuantity'];
 
+    $query= "INSERT INTO Product (`P_NAME`,`P_CATEGORY`,`P_PRICE`,`P_QUANTITY`) VALUES
+    ('$pName','$pCategory','$pPrice','$pQuantity')";
 
-$query= "INSERT INTO Product (`P_NAME`,`P_CATEGORY`,`P_PRICE`,`P_QUANTITY`) VALUES
-('$pName','$pCategory','$pPrice','$pQuantity')";
-
-$result=mysqli_query($conn,$query);
-if($result)
-{
-	//echo "Data Inserted";
-
-}else{
-	echo "Error : ".mysqli_error($conn);
-}
-
+    $result=mysqli_query($conn,$query);
+    if($result)
+    {
+        echo "Data Inserted";
+        header("location:ViewProduct.php");
+    }else{
+        echo "Error : ".mysqli_error($conn);
+    }
 }
 ?>
 
