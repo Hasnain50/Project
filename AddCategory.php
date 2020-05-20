@@ -8,8 +8,11 @@
 <body>
 
  <form method="POST">
-    <label>Enter Category Name</label>
+    <label>Enter Name</label>
     <input type="text" name="txtName"/>
+    <br>
+    <label>Enter Description</label>
+    <input type="text" name="txtDescription"/>
     <br>
         
     <input type="submit" name="btnsubmit" value="Add Category"/>
@@ -20,7 +23,8 @@
  if(isset($_POST['btnsubmit']))
  {
  $cat=$_POST['txtName'];
-  $query="INSERT into Category(C_NAME)value('$cat')";
+ $des=$_POST['txtDescription'];
+  $query="INSERT into Category(C_NAME),(C_DESCRIPTION)value('$cat'),('$des')";
   $result=mysqli_query($conn,$query);
   if($result)
   {
