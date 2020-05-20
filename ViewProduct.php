@@ -11,7 +11,7 @@
 <body>
 <?php
 include 'connection.php';
-$query="Select * from Product";
+$query="SELECT * from Product";
 $result=mysqli_query($conn,$query);
 ?>
 <div class="container">
@@ -33,40 +33,19 @@ $result=mysqli_query($conn,$query);
             while($row=mysqli_fetch_array($result))
             {       
     ?>
-    <!-- mysqli_fecth_array   both
-    mysqli_fetch_assoc   string
-    mysqli_fetch_row     int
-    $arr[0]
-    $arr[1]
-    $arr['name']
-    $arr['fname'] -->
-      <tr>
-        <td><?php echo $row['B_ID']?></td>
-        <td><?php echo $row['B_NAME']?></td>
-        <?php 
-            $cId=$row['P_Category'];
-            $query1="Select * from category where C_ID='$cId'";
-            $result1=mysqli_query($conn,$query1);
-            if($result1)
-            {
-               $row1=mysqli_fetch_row($result1); 
+    <tr>
+        <td><?php echo $row['P_ID']?></td>
+        <td><?php echo $row['P_CATEGORY']?></td>
+        <td><?php echo $row['P_NAME']?></td>
+        <td><?php echo $row['P_PRICE']?></td>
+        <td><?php echo $row['P_QUANTITY']?></td>
             
-        ?>
-        <td><?php echo $row1[1];?></td>
-        <?php 
-            } 
-        ?>
-        <td><?php echo $row['B_Price']?></td>
-       <td><?php echo $row['B_Quantity']?></td>
-       <td><a href="View.php?id=<?php echo $row['B_Id']?>"><img src="view.png" width="20px" height="20px"/></a>
-        <a href="Edit.php?id=<?php echo $row['B_Id']?>"><img src="pencil.png" width="20px" height="20px"/></a>
-        <a href="Delete.php?id=<?php echo $row['B_Id']?>"><img src="delete.png" width="20px" height="20px"/></a>
-        </td>
-      </tr>
-      <?php
+    </tr>
+<?php
+      
             }
         }
-      ?>
+     ?> 
     </tbody>
   </table>
 </div>
