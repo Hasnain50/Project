@@ -25,9 +25,15 @@
 <?php
 include 'connection.php';
 if(isset($_POST['btnSubmit']))
+{
 $pName=$_POST['txtName'];
 $pCategory=$_POST['txtCategory'];
+$pPrice=$_POST['txtPrice'];
+$pQuantity=$_POST['txtQuantity'];
 
+echo "Name : ".$pName;
+echo "Category : ".$pCategory;
+}
 ?>
 
 </body>
