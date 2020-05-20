@@ -35,16 +35,25 @@ $result=mysqli_query($conn,$query);
     ?>
     <tr>
         <td><?php echo $row['P_ID']?></td>
-        <td><?php echo $row['P_CATEGORY']?></td>
         <td><?php echo $row['P_NAME']?></td>
+            <?php
+        $cId=$row['P_CATEGORY'];
+        $query1="SELECT * FROM CATEGORY where C_ID='$cId'";
+        $result1=mysqli_query($conn,$query1);
+        if($result1)
+        {
+            $row=mysqli_fetch_row($result1);
+        ?>
+        <td><?php echo $row1['P_NAME'];?></td>
+        <?php
+           }
+        ?>
         <td><?php echo $row['P_PRICE']?></td>
-        <td><?php echo $row['P_QUANTITY']?></td>
-            
+        <td><?php echo $row['P_QUANTITY']?></td>   
     </tr>
 <?php
-      
             }
-        }
+        }   
      ?> 
     </tbody>
   </table>
