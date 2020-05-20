@@ -8,7 +8,7 @@
 <body>
 
  <form method="POST">
-    <label>Enter Name</label>
+    <label>Enter Category Name</label>
     <input type="text" name="txtName"/>
     <br>
         
