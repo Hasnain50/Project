@@ -8,7 +8,7 @@ define('database','Khareedlo');
 $conn=mysqli_connect(host,user,password,database);
 if($conn)
 {
-echo "Connected";
+//echo "Connected";
 }else{
 echo "Not connected";
 die();
