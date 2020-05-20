@@ -44,7 +44,7 @@ $result=mysqli_query($conn,$query);
         {
             $row=mysqli_fetch_row($result1);
         ?>
-        <td><?php echo $row1['P_NAME'];?></td>
+        <td><?php echo $row1[1];?></td>
         <?php
            }
         ?>
