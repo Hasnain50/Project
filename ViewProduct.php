@@ -24,6 +24,7 @@ $result=mysqli_query($conn,$query);
         <th>Category</th>
         <th>Price</th>
         <th>Quantity</th>
+        <th>Actions</th>
        </tr>
     </thead>
     <tbody>
@@ -49,7 +50,11 @@ $result=mysqli_query($conn,$query);
         }
         ?>
         <td><?php echo $row['P_PRICE']?></td>
-        <td><?php echo $row['P_QUANTITY']?></td>   
+        <td><?php echo $row['P_QUANTITY']?></td>
+        <td><a href="view.php?id=<?php echo $row['P_ID']?>"><label>View</label></a>
+        <a href="DeleteProduct.php"><label>Delete</label></a>
+        <label><a href="Edit.php">Edit</label></a>
+      </td>   
     </tr>
 <?php
             }
