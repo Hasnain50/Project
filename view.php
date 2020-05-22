@@ -10,9 +10,9 @@
 </head>
 <body>
 <?php
-if(isset($_GET['ID']))
+if(isset($_GET['id']))
 {
-    $id=$_GET['ID'];
+    $id=$_GET['id'];
     include 'connection.php';
     $query="SELECT * from Product where P_ID='$id'";
     $result=mysqli_query($conn,$query);
@@ -21,13 +21,14 @@ if(isset($_GET['ID']))
 ?>
 <div class="container">
     <table class="table">
+        <thead>
             <tr>
                 <th>Name : </th>
-                <td><?php echo $row[1]?></td>
+                <td><?php echo $row[2]?></td>
             </tr>
             <tr>
                 <th>Category : </th>
-                <td><?php echo $row[2]?></td>
+                <td><?php echo $row[1]?></td>
             </tr>
             <tr>
                 <th>Price : </th>
@@ -38,6 +39,7 @@ if(isset($_GET['ID']))
                 <td><?php echo $row[5]?></td>
             </tr>
     </table>
+</thead>
 </div>
 </body>
 </html>
